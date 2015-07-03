@@ -1,0 +1,41 @@
+<head>
+  <title>AutoFlow Demo</title>
+</head>
+
+<body>
+  <h1>AutoFlow Demo</h1>
+  <div class="row">
+      <div class="col-md-4 basic-col">
+          {{> flowJSON }}
+      </div>
+      <div class="col-md-4 basic-col">
+          {{> formDisplay }}
+      </div>
+      <div class="col-md-4 basic-col">
+          {{> dbValues }}
+      </div>
+  </div>
+</body>
+
+<template name="flowJSON">
+    <h2>Flow Definition</h2>
+    <form>
+        <div class="form-group">
+            <label for="jsonInput">Array of JSONable Objects</label>
+            <textarea id="jsonInput" class="form-control" rows="30">{{defaultFlowDef}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</template>
+
+<template name="formDisplay">
+    <h2>Form Produced</h2>
+    <div id="form-container">
+        {{> quickFlow autoFlowDef=flowDef id="simBasicForm" type="method-update" meteormethod="autoFlowUpsert" template="autoflow_bootstrap3_horizontal" label-class="col-sm-3" input-col-class="col-sm-6" resetOnSuccess=false buttonContent=buttonText auto-close-container-id="#form-container"}}
+    </div>
+</template>
+
+<template name="dbValues">
+    <h2>Database Values</h2>
+</template>
+
