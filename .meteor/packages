@@ -8,9 +8,9 @@ meteor-platform
 autopublish
 insecure
 twbs:bootstrap
-fullflavedave:autoflow
 aldeed:simple-schema
 fullflavedave:json-schema
 aldeed:autoform
 stevezhu:lodash
 reactive-var
+fullflavedave:autoflow

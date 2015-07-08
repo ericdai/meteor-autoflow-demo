@@ -1,31 +1,32 @@
-flowJSON = new ReactiveVar(SS_FLOW_DEF);
+Template.main.created = function() {
+    Meteor.call('reseed');
+    Session.set('demoName', 'basicSimpleSchema');
+    AutoFlow.flowDef.set(SeedData.basicSimpleSchema.flowDef);
+};
 
-Template.formDisplay.helpers({
-    flowDef: function () {
-        var flowDef = flowJSON.get();
-        //console.log('Running formDisplay, flowDef, flowDef[0] = ' + JSON.stringify(flowDef[0]));
-        return flowDef;
+Template.main.helpers({
+    active: function(currentDemo) {
+        return Session.equals('demoName', currentDemo) ? 'active': '';
+    },
+    flowDefTemplateName: function() {
+        return Session.get('demoName') + 'FlowDef';
+    },
+    formDisplayTemplateName: function() {
+        return Session.get('demoName') + 'FormDisplay';
+    },
+    dbValuesTemplateName: function() {
+        return Session.get('demoName') + 'DBValues';
     }
 });
 
-//Template.formDisplay.rendered = function() {
-//    console.log('Running formDisplay.rendered()');
-//    var newFlowJSON = flowJSON.get();
-//};
-
-Template.flowJSON.helpers({
-    defaultFlowDef: function () {
-        return SS_FLOW_DEF_STRING;
+Template.main.events({
+    'click .nav-link': function(event, template) {
+        var demoName = $(event.target).data('demo-name');
+        console.log('Clicked on a nav link, data-name = ' + demoName);
+        Session.set('demoName', demoName);
+        var flowDef = SeedData[demoName].flowDef;
+        AutoFlow.flowDef.set(flowDef);
+        var formName = flowDef[0] && flowDef[0].name;
+        AutoFlow.currentFormName.set(formName);
     }
 });
-
-Template.flowJSON.events({
-    'submit form': function (e, tmpl) {
-        e.preventDefault();
-        var jsonInput = tmpl.find('#jsonInput').value;
-        console.log('submitted form, JSON = ' + jsonInput);
-        AutoFlow.flowDef.set(JSON.parse(jsonInput));
-        //flowJSON.set(JSON.parse(jsonInput));
-    }
-});
-

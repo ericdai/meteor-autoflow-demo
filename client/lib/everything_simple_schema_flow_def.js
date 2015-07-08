@@ -1,4 +1,5 @@
-SS_FLOW_DEF = [
+SeedData.everythingSimpleSchema = {};
+SeedData.everythingSimpleSchema.flowDef = [
     //{
     //    name: "formSchema1",
     //    schemaFormat: "SimpleSchema",
@@ -182,7 +183,7 @@ SS_FLOW_DEF = [
             },
             "collectionId": {
                 "type": "String",
-                "defaultValue": "JobId1",
+                "defaultValue": "JobID1",
                 "autoflow": {
                     "hidden": true
                 }
@@ -227,7 +228,7 @@ SS_FLOW_DEF = [
             },
             "Hydraulic Fracture:injectionRate:mapTo": {
                 "type": "String",
-                "defaultValue": "Simulations.FluidSimulation.FluidInjectionRate",
+                "defaultValue": "Simulations.FluidSimulation.BoundaryConditions.FlowRate",
                 "autoflow": {
                     "hidden": true
                 }
@@ -242,7 +243,7 @@ SS_FLOW_DEF = [
             },
             "Hydraulic Fracture:fluidType:mapTo": {
                 "type": "String",
-                "defaultValue": "Other.FluidType",
+                "defaultValue": "Simulations.FluidSimulation.Materials.FluidType",
                 "autoflow": {
                     "hidden": true
                 }
@@ -274,7 +275,7 @@ SS_FLOW_DEF = [
                 "label": "Density",
                 "optional": true,
                 "autoflow": {
-                    "readOnly": true,
+                    "displayOnly": true,
                     "selectionDep": "Hydraulic Fracture.fluidType",
                     "selectionDepProperty": "density"
                 }
@@ -284,7 +285,7 @@ SS_FLOW_DEF = [
                 "label": "Viscosity",
                 "optional": true,
                 "autoflow": {
-                    "readOnly": true,
+                    "displayOnly": true,
                     "selectionDep": "Hydraulic Fracture.fluidType",
                     "selectionDepProperty": "viscosity"
                 }
@@ -327,14 +328,14 @@ SS_FLOW_DEF = [
                 "label": "Amount",
                 "optional": true,
                 "autoflow": {
-                    "readOnly": true,
+                    "displayOnly": true,
                     "formulaDep": "[Proppant.injectionTime] * [Proppant.injectionRate]",
                     "units": "kg"
                 }
             },
             "Proppant:proppantType:mapTo": {
                 "type": "String",
-                "defaultValue": "Other.ProppantType",
+                "defaultValue": "Simulations.ProppantTransportSimulation.Materials.ProppantType",
                 "autoflow": {
                     "hidden": true
                 }
@@ -378,7 +379,7 @@ SS_FLOW_DEF = [
                 "label": "Density",
                 "optional": true,
                 "autoflow": {
-                    "readOnly": true,
+                    "displayOnly": true,
                     "selectionDep": "Proppant.proppantType",
                     "selectionDepProperty": "density"
                 }
@@ -388,34 +389,13 @@ SS_FLOW_DEF = [
                 "label": "Diameter",
                 "optional": true,
                 "autoflow": {
-                    "readOnly": true,
+                    "displayOnly": true,
                     "selectionDep": "Proppant.proppantType",
                     "selectionDepProperty": "diameter"
                 }
             }
         }
     },
-    //{
-    //    name: "formSchema1",
-    //    schemaFormat: "SimpleSchema",
-    //    schema: {
-    //        name: {
-    //            type: "String",
-    //            label: "Your name",
-    //            max: 50
-    //        },
-    //        email: {
-    //            type: "String",
-    //            label: "E-mail address"
-    //        },
-    //        message: {
-    //            type: "String",
-    //            label: "Message",
-    //            optional: true,
-    //            max: 1000
-    //        }
-    //    }
-    //},
     {
         name: "formSchema2",
         schemaFormat: "SimpleSchema",
@@ -434,10 +414,20 @@ SS_FLOW_DEF = [
                     "hidden": true
                 }
             },
-            "testField2": {
-                "type": "String",
-                "label": "NBA Team",
-                "defaultValue": "Warriors"
+            name: {
+                type: "String",
+                label: "Your name",
+                max: 50
+            },
+            email: {
+                type: "String",
+                label: "E-mail address"
+            },
+            message: {
+                type: "String",
+                label: "Message",
+                optional: true,
+                max: 1000
             }
         }
     },
@@ -445,6 +435,25 @@ SS_FLOW_DEF = [
         name: "formSchema3",
         schemaFormat: "SimpleSchema",
         schema: {
+            "nextForm": {
+                "type": "String",
+                "defaultValue": "formSchema1",
+                "autoflow": {
+                    "hidden": true
+                }
+            },
+            "nextRoute": {
+                "type": "String",
+                "defaultValue": "proppantsim",
+                "autoflow": {
+                    "hidden": true
+                }
+            },
+            "testField2": {
+                "type": "String",
+                "label": "NBA Team",
+                "defaultValue": "Warriors"
+            },
             "testField3": {
                 "type": "String",
                 "label": "Futbol Club",
@@ -454,4 +463,4 @@ SS_FLOW_DEF = [
     }
 ];
 
-SS_FLOW_DEF_STRING = JSON.stringify(SS_FLOW_DEF, null, 4);
+SeedData.everythingSimpleSchema.collectionNames = ['Jobs'];

@@ -1,41 +1,37 @@
-<head>
-  <title>AutoFlow Demo</title>
-</head>
-
-<body>
-  <h1>AutoFlow Demo</h1>
-  <div class="row">
-      <div class="col-md-4 basic-col">
-          {{> flowJSON }}
-      </div>
-      <div class="col-md-4 basic-col">
-          {{> formDisplay }}
-      </div>
-      <div class="col-md-4 basic-col">
-          {{> dbValues }}
-      </div>
-  </div>
-</body>
-
-<template name="flowJSON">
-    <h2>Flow Definition</h2>
-    <form>
-        <div class="form-group">
-            <label for="jsonInput">Array of JSONable Objects</label>
-            <textarea id="jsonInput" class="form-control" rows="30">{{defaultFlowDef}}</textarea>
+<template name="main">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">AutoFlow Demo</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="{{active 'basicSimpleSchema'}}"><a href="#" data-demo-name="basicSimpleSchema" class="nav-link">Basic SimpleSchema</a></li>
+                    <li class="{{active 'basicJSONSchema'}}"><a href="#" data-demo-name="basicJSONSchema" class="nav-link">Basic JSONSchema</a></li>
+                    <li class="{{active 'everythingSimpleSchema'}}"><a href="#" data-demo-name="everythingSimpleSchema" class="nav-link">Everything
+                        SimpleSchema</a></li>
+                    <li class="{{active 'everythingJSONSchema'}}"><a href="#" data-demo-name="everythingJSONSchema" class="nav-link">Everything
+                        JSONSchema</a></li>
+                </ul>
+            </div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-</template>
+    </nav>
 
-<template name="formDisplay">
-    <h2>Form Produced</h2>
-    <div id="form-container">
-        {{> quickFlow autoFlowDef=flowDef id="simBasicForm" type="method-update" meteormethod="autoFlowUpsert" template="autoflow_bootstrap3_horizontal" label-class="col-sm-3" input-col-class="col-sm-6" resetOnSuccess=false buttonContent=buttonText auto-close-container-id="#form-container"}}
+    <!--{{> Template.dynamic template=templateName }}-->
+
+    <div class="row">
+        <div class="col-md-4 basic-col">
+            <!--{{> Template.dynamic template=flowDefTemplateName }}-->
+
+            {{> flowDef }}
+        </div>
+        <div class="col-md-4 basic-col">
+            <!--{{> Template.dynamic template=formDisplayTemplateName }}-->
+            {{> formDisplay}}
+        </div>
+        <div class="col-md-4 basic-col">
+            <!--{{> Template.dynamic template=dbValuesTemplateName }}-->
+            {{> dbValues }}
+        </div>
     </div>
 </template>
-
-<template name="dbValues">
-    <h2>Database Values</h2>
-</template>
-

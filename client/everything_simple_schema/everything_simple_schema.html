@@ -1,0 +1,29 @@
+<!--<template name="everythingSimpleSchemaFormDisplay">-->
+    <!--<div class="panel panel-info">-->
+        <!--<div class="panel-heading">-->
+            <!--<h2 class="panel-title">Form Produced</h2>-->
+        <!--</div>-->
+        <!--<div class="panel-body">-->
+            <!--<div id="form-container">-->
+                <!--{{> quickFlow autoFlowDef=flowDef id="simBasicForm" type="method-update" meteormethod="autoFlowUpsert" template="autoflow_bootstrap3_horizontal" label-class="col-sm-3" input-col-class="col-sm-6" resetOnSuccess=false buttonContent=buttonText }}-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</template>-->
+
+<template name="everythingSimpleSchemaDBValues">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h2 class="panel-title">Database Values</h2>
+        </div>
+        <div class="panel-body">
+            <form>
+                <div class="form-group">
+                    <!--<label for="jsonInput">Array of JSONable Objects</label>-->
+                    <textarea id="jsonInput" class="form-control" rows="40">{{collectionContents}}</textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</template>
