@@ -21,12 +21,14 @@ Template.main.helpers({
 
 Template.main.events({
     'click .nav-link': function(event, template) {
-        var demoName = $(event.target).data('demo-name');
-        console.log('Clicked on a nav link, data-name = ' + demoName);
+        var demoName = $(event.target).data('demo-name'),
+            flowDef = SeedData[demoName].flowDef,
+            formId = flowDef[0] && flowDef[0].formId;
+
+        event.preventDefault();
+
         Session.set('demoName', demoName);
-        var flowDef = SeedData[demoName].flowDef;
         AutoFlow.flowDef.set(flowDef);
-        var formName = flowDef[0] && flowDef[0].name;
-        AutoFlow.currentFormName.set(formName);
+        AutoFlow.currentFormId.set(formId);
     }
 });

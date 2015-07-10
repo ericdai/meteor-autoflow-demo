@@ -1,30 +1,12 @@
 SeedData.basicSimpleSchema = {};
 SeedData.basicSimpleSchema.flowDef = [
     {
-        "name": "formSchema1",
+        "formId": "form1",
         "schemaFormat": "SimpleSchema",
+        "collectionName": "People",
+        "collectionId": "PersonID1",
+        "nextForm": "form2",
         "schema": {
-            "nextForm": {
-                "type": "String",
-                "defaultValue": "formSchema2",
-                "autoflow": {
-                    "hidden": true
-                }
-            },
-            "collectionName": {
-                "type": "String",
-                "defaultValue": "People",
-                "autoflow": {
-                    "hidden": true
-                }
-            },
-            "collectionId": {
-                "type": "String",
-                "defaultValue": "PersonID1",
-                "autoflow": {
-                    "hidden": true
-                }
-            },
             "name": {
                 "type": "String",
                 "label": "Your name",
@@ -36,7 +18,7 @@ SeedData.basicSimpleSchema.flowDef = [
             },
             "color": {
                 "type": "String",
-                "label": "Favorite Color",
+                "label": "Favorite color",
                 "autoform": {
                     "options": [
                         {
@@ -57,30 +39,12 @@ SeedData.basicSimpleSchema.flowDef = [
         }
     },
     {
-        "name": "formSchema2",
+        "formId": "form2",
         "schemaFormat": "SimpleSchema",
+        "collectionName": "People",
+        "collectionId": "PersonID1",
+        "nextForm": "form1",
         "schema": {
-            "nextForm": {
-                "type": "String",
-                "defaultValue": "formSchema1",
-                "autoflow": {
-                    "hidden": true
-                }
-            },
-            "collectionName": {
-                "type": "String",
-                "defaultValue": "People",
-                "autoflow": {
-                    "hidden": true
-                }
-            },
-            "collectionId": {
-                "type": "String",
-                "defaultValue": "PersonID1",
-                "autoflow": {
-                    "hidden": true
-                }
-            },
             "telephone": {
                 "type": "String",
                 "label": "Telephone",

@@ -5,8 +5,8 @@
         </div>
         <div class="panel-body">
             <div id="form-container">
-                {{! autoFlowDef really not used since flow def is set with AutoFlow.flowDef.set() when nav link clicked}}
-                {{> quickFlow autoFlowDef=flowDef id="simBasicForm" type="method-update" meteormethod="autoFlowUpsert" template="autoflow_bootstrap3_horizontal" label-class="col-sm-3" input-col-class="col-sm-6" resetOnSuccess=false buttonContent=buttonText }}
+                {{! autoFlowDef really not used since flow def is set with AutoFlow.flowDef.set() when nav link clicked }}
+                {{> quickFlow autoFlowDef=flowDef id="simBasicForm" type="autoflow-method-update" meteormethod="autoFlowUpsert" template="autoflow_bootstrap3_horizontal" label-class="col-sm-3" input-col-class="col-sm-6" resetOnSuccess=false buttonContent=buttonText }}
             </div>
         </div>
     </div>
