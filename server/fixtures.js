@@ -11,19 +11,17 @@ var starterJob = {
                     "Pressure" : "pvd",
                     "Velocity" : "pvd"
                 },
-                "FlowRate" : {
-                    "1" : "140.0"
-                }
+                "FlowRate" : "90"
             }
         },
         "ProppantTransportSimulation" : {
-            "InjectionRate" : "17",
+            "InjectionRate" : "10",
             "Materials" : {
                 "FluidType" : "Carbonated Water",
                 "ProppantType" : "3"
             },
             "DiffusionCoefficient" : "0.2",
-            "InjectionTime" : "600"
+            "InjectionTime" : "300"
         }
     },
     "Status" : {
@@ -37,11 +35,11 @@ var starterJob = {
 
 var starterPerson = {
     _id: 'PersonID1',
-    name: 'Dave Allen',
+    name: 'Sumara Uhuru',
     email: 'test@test.com',
-    color: 'blue',
+    color: 'black',
     telephone: '867-5309',
-    city: 'Berkeley'
+    city: 'New York'
 };
 
 var reseed = function reseed() {

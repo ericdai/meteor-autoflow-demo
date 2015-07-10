@@ -1,63 +1,63 @@
 SeedData = typeof SeedData === 'undefined' ? {} : SeedData;
-SeedData.basicSimpleSchema = {};
-SeedData.basicSimpleSchema.flowDef = [
+SeedData.basicJSONSchema = {};
+SeedData.basicJSONSchema.flowDef = [
     {
         "formId": "form1",
-        "schemaFormat": "SimpleSchema",
+        "schemaFormat": "JSONSchema",
         "collectionName": "People",
         "collectionId": "PersonID1",
         "nextForm": "form2",
         "schema": {
             "name": {
-                "type": "String",
-                "label": "Your name",
+                "type": "string",
+                "description": "Your name",
                 "max": 50
             },
             "email": {
-                "type": "String",
-                "label": "E-mail address"
+                "type": "string",
+                "description": "E-mail address"
             },
             "color": {
-                "type": "String",
-                "label": "Favorite color",
-                "defaultValue": "Orange",
-                "allowedValues": ["Purple", "Blue", "Orange", "Green"]
+                "type": "string",
+                "description": "Favorite color",
+                "default": "Orange",
+                "enum": ["Purple", "Blue", "Orange"]
             }
         }
     },
     {
         "formId": "form2",
-        "schemaFormat": "SimpleSchema",
+        "schemaFormat": "JSONSchema",
         "collectionName": "People",
         "collectionId": "PersonID1",
         "nextForm": "form1",
         "schema": {
             "telephone": {
                 "type": "String",
-                "label": "Telephone",
+                "description": "Telephone",
                 "max": 50
             },
             "city": {
                 "type": "String",
-                "label": "City",
+                "description": "City",
                 "autoform": {
                     "defaultValue": "Berkeley",
                     "options": [
                         {
                             "label": "San Francisco",
-                            "value": "SF"
+                            "value": "San Francisco"
                         },
                         {
                             "label": "Oakland",
-                            "value": "Oaktown"
+                            "value": "Oakland"
                         },
                         {
                             "label": "Berkeley",
-                            "value": "Berserkely"
+                            "value": "Berkeley"
                         },
                         {
                             "label": "Alameda",
-                            "value": "ATown"
+                            "value": "Alameda"
                         }
                     ]
                 },
@@ -66,4 +66,4 @@ SeedData.basicSimpleSchema.flowDef = [
     }
 ];
 
-SeedData.basicSimpleSchema.collectionNames = ['People'];
+SeedData.basicJSONSchema.collectionNames = ['People'];

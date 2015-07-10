@@ -1,3 +1,11 @@
+<head>
+    <title>AutoFlow Demo</title>
+</head>
+
+<body>
+{{> main}}
+</body>
+
 <template name="main">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
@@ -8,30 +16,22 @@
                 <ul class="nav navbar-nav">
                     <li class="{{active 'basicSimpleSchema'}}"><a href="#" data-demo-name="basicSimpleSchema" class="nav-link">Basic SimpleSchema</a></li>
                     <li class="{{active 'basicJSONSchema'}}"><a href="#" data-demo-name="basicJSONSchema" class="nav-link">Basic JSONSchema</a></li>
-                    <li class="{{active 'everythingSimpleSchema'}}"><a href="#" data-demo-name="everythingSimpleSchema" class="nav-link">Everything
-                        SimpleSchema</a></li>
-                    <li class="{{active 'everythingJSONSchema'}}"><a href="#" data-demo-name="everythingJSONSchema" class="nav-link">Everything
-                        JSONSchema</a></li>
+                    <li class="{{active 'complexSimpleSchema'}}"><a href="#" data-demo-name="complexSimpleSchema" class="nav-link">Complex SimpleSchema</a></li>
+                    <li class="{{active 'complexJSONSchema'}}"><a href="#" data-demo-name="complexJSONSchema" class="nav-link">Complex JSONSchema</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!--{{> Template.dynamic template=templateName }}-->
-
     <div class="row">
         <div class="col-md-4 basic-col">
-            <!--{{> Template.dynamic template=flowDefTemplateName }}-->
-
-            {{> flowDef }}
+            {{> flowDef}}
         </div>
         <div class="col-md-4 basic-col">
-            <!--{{> Template.dynamic template=formDisplayTemplateName }}-->
             {{> formDisplay}}
         </div>
         <div class="col-md-4 basic-col">
-            <!--{{> Template.dynamic template=dbValuesTemplateName }}-->
-            {{> dbValues }}
+            {{> dbValues}}
         </div>
     </div>
 </template>

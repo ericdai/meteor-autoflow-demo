@@ -1,5 +1,6 @@
-SeedData.everythingSimpleSchema = {};
-SeedData.everythingSimpleSchema.flowDef = [
+SeedData = typeof SeedData === 'undefined' ? {} : SeedData;
+SeedData.complexJSONSchema = {};
+SeedData.complexJSONSchema.flowDef = [
     {
         formId: "form1",
         schemaFormat: "SimpleSchema",
@@ -217,4 +218,4 @@ SeedData.everythingSimpleSchema.flowDef = [
     }
 ];
 
-SeedData.everythingSimpleSchema.collectionNames = ['Jobs'];
+SeedData.complexJSONSchema.collectionNames = ['Jobs'];
