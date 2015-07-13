@@ -1,3 +1,5 @@
+var isCheatSheetHidden = true;
+
 Template.main.created = function() {
     Meteor.call('reseed');
     Session.set('demoName', 'basicSimpleSchema');
@@ -7,17 +9,9 @@ Template.main.created = function() {
 Template.main.helpers({
     active: function(currentDemo) {
         return Session.equals('demoName', currentDemo) ? 'active': '';
-    },
-    flowDefTemplateName: function() {
-        return Session.get('demoName') + 'FlowDef';
-    },
-    formDisplayTemplateName: function() {
-        return Session.get('demoName') + 'FormDisplay';
-    },
-    dbValuesTemplateName: function() {
-        return Session.get('demoName') + 'DBValues';
     }
 });
+
 
 Template.main.events({
     'click .nav-link': function(event, template) {
@@ -30,5 +24,18 @@ Template.main.events({
         Session.set('demoName', demoName);
         AutoFlow.flowDef.set(flowDef);
         AutoFlow.currentFormId.set(formId);
+    },
+    'click #cheat-sheet-link': function(event, template) {
+        if (isCheatSheetHidden) {
+            $('#cheat-sheet').toggle();
+            $('#cheat-sheet').animate({right: '0px'},500);
+            isCheatSheetHidden = false;
+        } else {
+            $('#cheat-sheet').animate({right: '-840px'},500);
+            Meteor.setTimeout(function() {
+                $('#cheat-sheet').toggle();
+            }, 500);
+            isCheatSheetHidden = true;
+        }
     }
 });

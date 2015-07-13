@@ -17,7 +17,9 @@
                     <li class="{{active 'basicSimpleSchema'}}"><a href="#" data-demo-name="basicSimpleSchema" class="nav-link">Basic SimpleSchema</a></li>
                     <li class="{{active 'basicJSONSchema'}}"><a href="#" data-demo-name="basicJSONSchema" class="nav-link">Basic JSONSchema</a></li>
                     <li class="{{active 'complexSimpleSchema'}}"><a href="#" data-demo-name="complexSimpleSchema" class="nav-link">Complex SimpleSchema</a></li>
-                    <li class="{{active 'complexJSONSchema'}}"><a href="#" data-demo-name="complexJSONSchema" class="nav-link">Complex JSONSchema</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#" id="cheat-sheet-link">Cheat Sheet</a></li>
                 </ul>
             </div>
         </div>
@@ -34,4 +36,7 @@
             {{> dbValues}}
         </div>
     </div>
+
+    {{> cheatSheet}}
+
 </template>

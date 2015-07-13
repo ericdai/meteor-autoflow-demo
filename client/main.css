@@ -5,3 +5,12 @@ body {
 .basic-col {
     padding: 0 20px 0 20px;
 }
+
+#cheat-sheet {
+    position: fixed;
+    width: 840px;
+    right: -840px;
+    top: 90px;
+    z-index: 5;
+    transition: width .5s linear;
+}

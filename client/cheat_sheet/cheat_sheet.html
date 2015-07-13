@@ -1,0 +1,88 @@
+<template name="cheatSheet">
+
+    <div id="cheat-sheet" hidden>
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">AutoFlow Quick Reference</h3>
+            </div>
+            <div class="panel-body">
+
+                <div class="row">
+                    <div class="col-md-12 basic-col">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Flow Def Properties</h3>
+                            </div>
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>formId</dt>
+                                    <dd>string, unique ID for that form</dd>
+                                    <dt>collectionName</dt>
+                                    <dd>string, name of the collection to be updated</dd>
+                                    <dt>collectionId</dt>
+                                    <dd>string, the _id of the doc to be updated</dd>
+                                    <dt>nextForm</dt>
+                                    <dd>string, must be the formId field of another form in the flow definition</dd>
+                                    <dt>nextPage</dt>
+                                    <dd>string, can be a relative path or absolute url. After submitting the form, user will be redirected
+                                        to this page by calling window.location.href =
+                                    </dd>
+                                    <dt>schemaFormat</dt>
+                                    <dd>string, value can be SimpleSchema or JSONSchema (JSONSchema format will be converted to
+                                        SimpleSchema using the [JSON Schema to SimpleSchema](https://github.com/yodata/meteor-json-simple-schema/)
+                                        package)
+                                    </dd>
+                                    <dt>schema</dt>
+                                    <dd>JSON object, the form definition, in SimpleSchema" or JSONSchema format</dd>
+                                </dl>
+                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 basic-col">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Field Properties</h3>
+                            </div>
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>autoflow.readOnly</dt><dd>boolean, make input element read only by adding `readonly` attribute</dd>
+                                    <dt>autoflow.displayOnly</dt><dd>boolean, create a display element</dd>
+                                    <dt>autoflow.units</dt><dd>string, add units to input element</dd>
+                                    <dt>autoflow.selectionDep</dt><dd>(change name) string, name of another field</dd>
+                                    <dt>autoflow.selectionDepProperty</dt><dd>(change name) string, a property of the field specified by `selectionDep`</dd>
+                                    <dt>autoflow.formulaDep</dt><dd>(change name) string, basic math formula.  String interpolation performed on tokens containing field names within brackets (e.g. `[]`)</dd>
+                                    <dt>autoflow.closed</dt><dd>boolean, limited to objects types (fieldsets), initial display of fieldset will be closed/collapsed</dd>
+                                    <dt>autoflow.mapTo</dt><dd>string, the property of `collectionName` that should be updated with this value.  Use dot notation.</dd>
+                                    <dt>autoflow.hidden</dt><dd>deprecate?? boolean, make field a hidden field (use autoform omit instead??</dd><br /><br />
+                                    <dt>autoform.type</dt><dd>manual control of input type</dd>
+                                    <dt>autoform.rows</dt><dd>number, number of rows for type `textarea`</dd>
+                                    <dt>autoform.class</dt><dd>class for field (input?)</dd>
+                                    <dt>autoform.omit</dt><dd>field not included in html form</dd>
+                                    <dt>type</dt><dd>string, value can be `String`, `Number`, `Boolean`, `Object`, `[String]`, `[Number]`, `[Boolean]`, `[Object]`</dd>
+                                    <dt>label</dt><dd>`label`</dd>
+                                    <dt>defaultValue</dt><dd>`defaultValue`</dd>
+                                    <dt>optional</dt><dd>`optional`</dd>
+                                    <dt>min/max</dt><dd>`min` and `max`</dd>
+                                    <dt>exclusiveMin/exclusiveMax</dt><dd>`exclusiveMin` and `exclusiveMax`</dd>
+                                    <dt>decimal</dt><dd>`decimal` -- boolean, `true` indicates non-integers are allowed, `false` indicates they are not allowed .  Default is `false`.</dd>
+                                    <dt>minCount/maxCount</dt><dd>number, for arrays</dd>
+                                    <dt>allowedValues</dt><dd>array of allowed values</dd>
+                                    <dt>regEx</dt><dd>regEx</dd>
+                                    <dt>blackbox</dt><dd>boolean, skip validation of entire contents of fieldset</dd>
+                                    <dt>trim</dt><dd>boolean, default is `true`</dd>
+                                    <dt>autoValue</dt><dd>function</dd>
+                                    <dt>custom</dt><dd>function</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
