@@ -13,8 +13,10 @@ SeedData.complexSimpleSchema.flowDef = [
                 "type": "String",
                 "defaultValue": "submitted",
                 "autoflow": {
-                    "mapTo": "Status.HydraulicFractureSimulation",
-                    "hidden": true
+                    "mapTo": "Status.HydraulicFractureSimulation"
+                },
+                "autoform": {
+                    "type": "hidden"
                 }
             },
             "Status_ProppantTransportSimulation": {
@@ -22,14 +24,16 @@ SeedData.complexSimpleSchema.flowDef = [
                 "defaultValue": "submitted",
                 "autoflow": {
                     "mapTo": "Status.ProppantTransportSimulation",
-                    "hidden": true
+                },
+                "autoform": {
+                    "type": "hidden"
                 }
             },
             "demoMode": {
                 "type": "String",
                 defaultValue: 1,
-                "autoflow": {
-                    "hidden": true
+                "autoform": {
+                    "type": "hidden"
                 }
             },
             "Hydraulic Fracture": {
