@@ -115,7 +115,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 "optional": true,
                 "autoflow": {
                     "displayOnly": true,
-                    "formulaDep": "[Proppant.injectionTime] * [Proppant.injectionRate]",
+                    "formula": "[Proppant.injectionTime] * [Proppant.injectionRate]",
                     "units": "kg"
                 }
             },

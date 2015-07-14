@@ -1,5 +1,16 @@
 var isCheatSheetHidden = true;
 
+var adjustPageHeight = function adjustPageHeight() {
+    var cheatSheetHeight = $('#cheat-sheet').height();
+    var $body = $('body');
+    var bodyHeight = $body.height();
+    if (cheatSheetHeight > bodyHeight) $body.height(cheatSheetHeight);
+};
+
+var removeBodyHeight = function removeBodyHeight() {
+    $('body').removeAttr('style');
+};
+
 Template.main.created = function() {
     Meteor.call('reseed');
     Session.set('demoName', 'basicSimpleSchema');
@@ -11,7 +22,6 @@ Template.main.helpers({
         return Session.equals('demoName', currentDemo) ? 'active': '';
     }
 });
-
 
 Template.main.events({
     'click .nav-link': function(event, template) {
@@ -29,11 +39,13 @@ Template.main.events({
         if (isCheatSheetHidden) {
             $('#cheat-sheet').toggle();
             $('#cheat-sheet').animate({right: '0px'},500);
+            adjustPageHeight();
             isCheatSheetHidden = false;
         } else {
             $('#cheat-sheet').animate({right: '-840px'},500);
             Meteor.setTimeout(function() {
                 $('#cheat-sheet').toggle();
+                removeBodyHeight();
             }, 500);
             isCheatSheetHidden = true;
         }

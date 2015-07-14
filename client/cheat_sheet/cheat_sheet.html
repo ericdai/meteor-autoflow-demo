@@ -49,6 +49,7 @@
                             </div>
                             <div class="panel-body">
                                 <dl class="dl-horizontal">
+                                    <h4>From AutoFlow</h4>
                                     <dt>autoflow.readOnly</dt><dd>boolean, make input element read only by adding `readonly` attribute</dd>
                                     <dt>autoflow.displayOnly</dt><dd>boolean, create a display element</dd>
                                     <dt>autoflow.units</dt><dd>string, add units to input element</dd>
@@ -57,11 +58,13 @@
                                     <dt>autoflow.formulaDep</dt><dd>(change name) string, basic math formula.  String interpolation performed on tokens containing field names within brackets (e.g. `[]`)</dd>
                                     <dt>autoflow.closed</dt><dd>boolean, limited to objects types (fieldsets), initial display of fieldset will be closed/collapsed</dd>
                                     <dt>autoflow.mapTo</dt><dd>string, the property of `collectionName` that should be updated with this value.  Use dot notation.</dd>
-                                    <dt>autoflow.hidden</dt><dd>deprecate?? boolean, make field a hidden field (use autoform omit instead??</dd><br /><br />
+                                    <dt>autoflow.hidden</dt><dd>deprecate?? boolean, make field a hidden field (use autoform omit instead??</dd><br />
+                                    <h4>From Autoform</h4>
                                     <dt>autoform.type</dt><dd>manual control of input type</dd>
                                     <dt>autoform.rows</dt><dd>number, number of rows for type `textarea`</dd>
                                     <dt>autoform.class</dt><dd>class for field (input?)</dd>
-                                    <dt>autoform.omit</dt><dd>field not included in html form</dd>
+                                    <dt>autoform.omit</dt><dd>field not included in html form</dd><br />
+                                    <h4>From SimpleSchema</h4>
                                     <dt>type</dt><dd>string, value can be `String`, `Number`, `Boolean`, `Object`, `[String]`, `[Number]`, `[Boolean]`, `[Object]`</dd>
                                     <dt>label</dt><dd>`label`</dd>
                                     <dt>defaultValue</dt><dd>`defaultValue`</dd>
