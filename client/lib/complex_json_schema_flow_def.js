@@ -1,85 +1,159 @@
+/*
+ * The flowDef is a mess and is nowhere near ready to be used
+ */
 SeedData = typeof SeedData === 'undefined' ? {} : SeedData;
 SeedData.complexJSONSchema = {};
 SeedData.complexJSONSchema.flowDef = [
     {
         formId: "form1",
-        schemaFormat: "SimpleSchema",
+        schemaFormat: "JSONSchema",
         "nextForm": "form2",
         "nextRoute": "fracsim",
         "collectionName": "Jobs",
         "collectionId": "JobID1",
         schema: {
             "Status_HydraulicFractureSimulation": {
-                "type": "String",
-                "defaultValue": "submitted",
+                "type": "string",
+                "default": "submitted",
                 "autoflow": {
                     "mapTo": "Status.HydraulicFractureSimulation",
                     "hidden": true
                 }
             },
             "Status_ProppantTransportSimulation": {
-                "type": "String",
-                "defaultValue": "submitted",
+                "type": "string",
+                "default": "submitted",
                 "autoflow": {
                     "mapTo": "Status.ProppantTransportSimulation",
                     "hidden": true
                 }
             },
             "demoMode": {
-                "type": "String",
-                defaultValue: 1,
+                "type": "string",
+                "default": 1,
                 "autoflow": {
                     "hidden": true
                 }
             },
             "Hydraulic Fracture": {
-                "type": "Object"
+                "type": "object"
             },
             "Hydraulic Fracture.injectionRate": {
-                "type": "String",
+                "type": "string",
                 "label": "Injection Rate",
-                "defaultValue": "40",
+                "default": "40",
                 "autoflow": {
                     "mapTo": "Simulations.FluidSimulation.BoundaryConditions.FlowRate",
                     "units": "kg/s"
                 }
             },
             "Hydraulic Fracture.fluidType": {
-                "type": "String",
+                "type": "string",
                 "label": "Fluid Type",
-                "autoform": {
-                    "defaultValue": "Water",
-                    "options": [
-                        {
-                            "label": "Water",
-                            "value": "Water",
-                            "density": "1000 kg m^{-3}",
-                            "viscosity": "0.001 Pa s"
-                        },
-                        {
-                            "label": "Slick Stuff",
-                            "value": "Slick Stuff",
-                            "density": "20",
-                            "viscosity": "30"
+                "properties": {
+                    "autoform": {
+                        "type": "object",
+                        "properties": {
+                            "default": {
+                                "type": "string",
+                                "default": "Water"
+                            },
+                            "options": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "enum": [
+                                        {
+                                            "1": {
+                                                "type": "object",
+                                                "enum": [
+                                                    {
+                                                        "label": {
+                                                            "type": "string",
+                                                            "default": "Water"
+                                                        }
+                                                    },
+                                                    {
+                                                        "value": {
+                                                            "type": "string",
+                                                            "default": "Water"
+                                                        }
+                                                    },
+                                                    {
+                                                        "density": {
+                                                            "type": "string",
+                                                            "default": "1000 kg m^{-3}"
+                                                        }
+                                                    },
+                                                    {
+                                                        "viscosity": {
+                                                            "type": "string",
+                                                            "default": "0.001 Pa s"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "2": {
+                                                "type": "object",
+                                                "enum": [
+                                                    {
+                                                        "label": {
+                                                            "type": "string",
+                                                            "default": "Slick Stuff"
+                                                        }
+                                                    },
+                                                    {
+                                                        "value": {
+                                                            "type": "string",
+                                                            "default": "SlickStuff"
+                                                        }
+                                                    },
+                                                    {
+                                                        "density": {
+                                                            "type": "string",
+                                                            "default": "800 kg m^{-3}"
+                                                        }
+                                                    },
+                                                    {
+                                                        "viscosity": {
+                                                            "type": "string",
+                                                            "default": "0.005 Pa s"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
                         }
-                    ]
-                },
-                "autoflow": {
-                    "mapTo": "Simulations.FluidSimulation.Materials.FluidType"
+                    },
+                    "autoflow": {
+                        "type": "object",
+                        "properties": {
+                            "mapTo": {
+                                "type": "string",
+                                "default": "Status.ProppantTransportSimulation"
+                            }
+                        }
+                    }
                 }
             },
             "Hydraulic Fracture.density": {
-                "type": "String",
+                "type": "string",
                 "label": "Density",
                 "optional": true,
                 "autoflow": {
                     "displayOnly": true,
                     "selectionDep": "Hydraulic Fracture.fluidType",
-                    "selectionDepProperty": "density"
+                    "selectionDepProperty": "density",
+                    "type": "object"
                 }
             },
             "Hydraulic Fracture.viscosity": {
-                "type": "String",
+                "type": "string",
                 "label": "Viscosity",
                 "optional": true,
                 "autoflow": {
@@ -89,41 +163,59 @@ SeedData.complexJSONSchema.flowDef = [
                 }
             },
             "Proppant": {
-                "type": "Object"
+                "type": "object"
             },
             "Proppant.injectionTime": {
-                "type": "String",
+                "type": "string",
                 "label": "Injection Time",
-                "defaultValue": "600",
+                "default": "600",
                 "autoflow": {
-                    "mapTo": "Simulations.ProppantTransportSimulation.InjectionTime",
-                    "units": "s"
+                    "type": "object",
+                    "properties": {
+                        "mapTo": {
+                            "type": "string",
+                            "default": "Simulations.ProppantTransportSimulation.InjectionTime"
+                        },
+                        "units": {
+                            "type": "string",
+                            "default": "s"
+                        }
+                    }
                 }
             },
             "Proppant.injectionRate": {
-                "type": "String",
+                "type": "string",
                 "label": "Injection Rate",
-                "defaultValue": "17",
+                "default": "17",
                 "autoflow": {
-                    "mapTo": "Simulations.ProppantTransportSimulation.InjectionRate",
-                    "units": "kg/s"
+                    "type": "object",
+                    "properties": {
+                        "mapTo": {
+                            "type": "string",
+                            "default": "Simulations.ProppantTransportSimulation.InjectionRate"
+                        },
+                        "units": {
+                            "type": "string",
+                            "default": "kg/s"
+                        }
+                    }
                 }
             },
             "Proppant.amount": {
-                "type": "String",
+                "type": "string",
                 "label": "Amount",
                 "optional": true,
                 "autoflow": {
                     "displayOnly": true,
-                    "formulaDep": "[Proppant.injectionTime] * [Proppant.injectionRate]",
+                    "formula": "[Proppant.injectionTime] * [Proppant.injectionRate]",
                     "units": "kg"
                 }
             },
             "Proppant.proppantType": {
-                "type": "String",
+                "type": "string",
                 "label": "Proppant Type",
                 "autoform": {
-                    "defaultValue": "Melior60",
+                    "default": "Melior60",
                     "options": [
                         {
                             "label": "WhiteSand100",
@@ -156,7 +248,7 @@ SeedData.complexJSONSchema.flowDef = [
                 }
             },
             "Proppant.density": {
-                "type": "String",
+                "type": "string",
                 "label": "Density",
                 "optional": true,
                 "autoflow": {
@@ -166,7 +258,7 @@ SeedData.complexJSONSchema.flowDef = [
                 }
             },
             "Proppant.diameter": {
-                "type": "String",
+                "type": "string",
                 "label": "Diameter",
                 "optional": true,
                 "autoflow": {
@@ -183,19 +275,19 @@ SeedData.complexJSONSchema.flowDef = [
         nextForm: "form3",
         schema: {
             name: {
-                type: "String",
+                type: "string",
                 label: "Your name",
-                max: 50
+                maximum: 50
             },
             email: {
-                type: "String",
+                type: "string",
                 label: "E-mail address"
             },
             message: {
-                type: "String",
+                type: "string",
                 label: "Message",
                 optional: true,
-                max: 1000
+                maximum: 1000
             }
         }
     },
@@ -205,14 +297,14 @@ SeedData.complexJSONSchema.flowDef = [
         nextForm: "form1",
         schema: {
             "testField2": {
-                "type": "String",
+                "type": "string",
                 "label": "Best NBA Team",
-                "defaultValue": "Warriors"
+                "default": "Warriors"
             },
             "testField3": {
-                "type": "String",
+                "type": "string",
                 "label": "Best Futbol Club",
-                "defaultValue": "Barcelona"
+                "default": "Barcelona"
             }
         }
     }

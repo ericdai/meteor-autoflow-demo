@@ -10,7 +10,7 @@ SeedData.complexSimpleSchema.flowDef = [
         "collectionId": "JobID1",
         schema: {
             "Status_HydraulicFractureSimulation": {
-                "type": "String",
+                "type": "string",
                 "defaultValue": "submitted",
                 "autoflow": {
                     "mapTo": "Status.HydraulicFractureSimulation"
@@ -20,27 +20,27 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Status_ProppantTransportSimulation": {
-                "type": "String",
+                "type": "string",
                 "defaultValue": "submitted",
                 "autoflow": {
-                    "mapTo": "Status.ProppantTransportSimulation",
+                    "mapTo": "Status.ProppantTransportSimulation"
                 },
                 "autoform": {
                     "type": "hidden"
                 }
             },
             "demoMode": {
-                "type": "String",
-                defaultValue: 1,
+                "type": "string",
+                "defaultValue": 1,
                 "autoform": {
                     "type": "hidden"
                 }
             },
             "Hydraulic Fracture": {
-                "type": "Object"
+                "type": "object"
             },
             "Hydraulic Fracture.injectionRate": {
-                "type": "String",
+                "type": "string",
                 "label": "Injection Rate",
                 "defaultValue": "40",
                 "autoflow": {
@@ -49,7 +49,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Hydraulic Fracture.fluidType": {
-                "type": "String",
+                "type": "string",
                 "label": "Fluid Type",
                 "autoform": {
                     "defaultValue": "Water",
@@ -73,7 +73,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Hydraulic Fracture.density": {
-                "type": "String",
+                "type": "string",
                 "label": "Density",
                 "optional": true,
                 "autoflow": {
@@ -83,7 +83,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Hydraulic Fracture.viscosity": {
-                "type": "String",
+                "type": "string",
                 "label": "Viscosity",
                 "optional": true,
                 "autoflow": {
@@ -93,10 +93,10 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Proppant": {
-                "type": "Object"
+                "type": "object"
             },
             "Proppant.injectionTime": {
-                "type": "String",
+                "type": "string",
                 "label": "Injection Time",
                 "defaultValue": "600",
                 "autoflow": {
@@ -105,7 +105,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Proppant.injectionRate": {
-                "type": "String",
+                "type": "string",
                 "label": "Injection Rate",
                 "defaultValue": "17",
                 "autoflow": {
@@ -114,7 +114,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Proppant.amount": {
-                "type": "String",
+                "type": "string",
                 "label": "Amount",
                 "optional": true,
                 "autoflow": {
@@ -124,7 +124,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Proppant.proppantType": {
-                "type": "String",
+                "type": "string",
                 "label": "Proppant Type",
                 "autoform": {
                     "defaultValue": "Melior60",
@@ -160,7 +160,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Proppant.density": {
-                "type": "String",
+                "type": "string",
                 "label": "Density",
                 "optional": true,
                 "autoflow": {
@@ -170,7 +170,7 @@ SeedData.complexSimpleSchema.flowDef = [
                 }
             },
             "Proppant.diameter": {
-                "type": "String",
+                "type": "string",
                 "label": "Diameter",
                 "optional": true,
                 "autoflow": {
@@ -187,16 +187,16 @@ SeedData.complexSimpleSchema.flowDef = [
         nextForm: "form3",
         schema: {
             name: {
-                type: "String",
+                type: "string",
                 label: "Your name",
                 max: 50
             },
             email: {
-                type: "String",
+                type: "string",
                 label: "E-mail address"
             },
             message: {
-                type: "String",
+                type: "string",
                 label: "Message",
                 optional: true,
                 max: 1000
@@ -209,12 +209,12 @@ SeedData.complexSimpleSchema.flowDef = [
         nextForm: "form1",
         schema: {
             "testField2": {
-                "type": "String",
+                "type": "string",
                 "label": "Best NBA Team",
                 "defaultValue": "Warriors"
             },
             "testField3": {
-                "type": "String",
+                "type": "string",
                 "label": "Best Futbol Club",
                 "defaultValue": "Barcelona"
             }
