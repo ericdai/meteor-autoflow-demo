@@ -10,7 +10,7 @@ Template.flowDef.events({
         e.preventDefault();
         var jsonInput = tmpl.find('#jsonInput').value;
         //console.log('submitted form, JSON = ' + jsonInput);
-        AutoFlow.flowDef.set(JSON.parse(jsonInput));
+        Session.set('flowDef', JSON.parse(jsonInput));
         //AutoFlow.setFlowDef(JSON.parse(jsonInput));
         //flowJSON.set(JSON.parse(jsonInput));
     }

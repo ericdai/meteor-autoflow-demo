@@ -14,7 +14,7 @@ var removeBodyHeight = function removeBodyHeight() {
 Template.main.created = function() {
     Meteor.call('reseed');
     Session.set('demoName', 'basicSimpleSchema');
-    AutoFlow.flowDef.set(SeedData.basicSimpleSchema.flowDef);
+    Session.set('flowDef', SeedData.basicSimpleSchema.flowDef);
 };
 
 Template.main.helpers({
@@ -32,7 +32,7 @@ Template.main.events({
         event.preventDefault();
 
         Session.set('demoName', demoName);
-        AutoFlow.flowDef.set(flowDef);
+        Session.set('flowDef', flowDef);
         AutoFlow.currentFormId.set(formId);
     },
     'click #cheat-sheet-link': function(event, template) {
@@ -51,3 +51,21 @@ Template.main.events({
         }
     }
 });
+
+//Template.outerTest.helpers({
+//    testParam: function() {
+//        return Session.get("testParam") || "Hi Dave";
+//    }
+//});
+//
+//Template.innerTest.rendered = function() {
+//    this.autorun(function() {
+//        //var asdf = Session.get("testParam");
+//        console.log('Starting innerTest.rendered(), this.data = ' + this.data);
+//        console.log('Starting innerTest.rendered(), Template.currentData() = ' + Template.currentData());
+//        var data = Template.currentData();
+//        if (!data) return;
+//        var testParam = data.testParam;
+//        console.log('innterTest, testParam = ' + testParam);
+//    });
+//};
